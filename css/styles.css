@@ -1,6 +1,7 @@
 nav {
   display: flex;
   justify-content: space-between;
+  flex: 1 1 auto;
   padding: 0 20px;
   position: sticky;
   top: 0;
@@ -9,6 +10,11 @@ nav {
   background-color: rgb(29, 29, 29);
   color: white;
   align-items: center;
+  z-index: 1000;
+
+  i.fa-bars {
+    display: none;
+  }
 
   .nav-title {
     font-size: 30px;
@@ -21,7 +27,6 @@ nav {
     gap: 40px;
     justify-content: center;
     align-items: center;
-    height: 60px;
 
     li {
       text-align: center;
@@ -51,10 +56,12 @@ nav {
   }
 }
 
+
 .home {
   margin: 20px;
-
+  
   .home-container {
+      width: 100%;
     justify-content: space-around;
     display: flex;
 
@@ -62,8 +69,10 @@ nav {
       margin: 50px;
       text-align: center;
       line-height: 2rem;
-      min-width: 250px;
-      max-width: 500px;
+      min-width: 15rem;
+      width: 60vw;
+      max-width: 40rem;
+      flex: 1 1 auto;
 
       :first-child {
         font-size: 1.5rem;
@@ -71,10 +80,16 @@ nav {
       }
     }
 
-    img {
-      width: 500px;
-      border-radius: 20px;
-      object-fit: contain;
+    .my-photo {
+        object-fit: contain;
+        margin: 20px;
+
+        img {
+            min-width: 10rem;
+            width: 50vw;
+            max-width: 30rem; 
+            border-radius: 20px;
+        }
     }
   }
 }
@@ -82,4 +97,26 @@ nav {
 .section {
   height: 300px;
   padding: 10rem 20px;
+}
+
+
+@media (max-width: 1058px) {
+    nav {
+        ul {
+            display: none;
+        }
+
+        i.fa-bars {
+            display: block;
+            font-size: 25px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .home-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
