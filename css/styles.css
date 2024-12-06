@@ -118,6 +118,10 @@ nav {
         display: flex;
         gap: 30px;
 
+        .title {
+            color: var(--secondary-pink);
+        }
+
         .col {
             display: flex;
             flex-direction: column;
