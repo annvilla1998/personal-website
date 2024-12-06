@@ -123,6 +123,7 @@ nav {
             flex-direction: column;
             gap: 15px;
             min-width: 300px;
+            max-width: 1200px;
         }
 
         .experience {
