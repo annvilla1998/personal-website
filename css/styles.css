@@ -112,6 +112,45 @@ nav {
     }
 }
 
+.resume-container {
+    .my-resume {
+        display: flex;
+        gap: 30px;
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 300px;
+        }
+
+        .experience {
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: -10px -5px 20px var(--tertiary-pink);
+            transition: transform 0.3s ease;
+
+            .sub-title {
+                font-weight: 600;
+            }
+
+            .date {
+                color: #666;
+                font-weight: 600;
+            }
+
+            ul li {
+                list-style: circle;
+                margin: 15px 0;
+            }
+
+            &:hover {
+                transform: translateX(-15px) translateY(-5px);
+            }
+        }
+    }
+}
+
 @media (max-width: 1058px) {
   nav {
     ul {
@@ -131,4 +170,14 @@ nav {
     justify-content: center;
     align-items: center;
   }
+}
+
+@media (max-width: 700px) {
+    .resume-container {
+        .my-resume {
+            display: flex;
+            gap: 30px;
+            flex-direction: column;
+        }
+    }
 }
