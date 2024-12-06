@@ -1,5 +1,8 @@
 * {
     --primary-pink: rgb(255, 1, 99);
+    --secondary-pink: rgb(173, 0, 66);
+    --tertiary-pink: rgb(234, 135, 173);
+    --default-text: #202020;
 }
 
 html, body {
@@ -7,7 +10,6 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden; 
   }
 
 html {
@@ -22,7 +24,7 @@ body {
     font-size: 18px;
     background: rgb(224, 224, 224);
 
-    color: #202020;
+    color: var(--default-text);
 }
 
 body > * {
@@ -40,6 +42,26 @@ a {
     color: white;
 
     :hover {
+        opacity: 0.5;
+    }
+}
+
+.primary-btn {
+    border-radius: 10px;
+    background-color: var(--tertiary-pink);
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    a {
+        color: var(--default-text);
+        font-weight: 600;
+    }
+
+    &:hover {
         opacity: 0.7;
     }
 }

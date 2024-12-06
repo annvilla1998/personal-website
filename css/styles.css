@@ -56,67 +56,79 @@ nav {
   }
 }
 
-
 .home {
-  margin: 20px;
-  
+  margin: 2rem;
+
   .home-container {
-      width: 100%;
+    width: 100%;
     justify-content: space-around;
     display: flex;
+    gap: 1rem;
 
     .introduction {
-      margin: 50px;
-      text-align: center;
-      line-height: 2rem;
+      margin: 2rem 0;
       min-width: 15rem;
       width: 60vw;
       max-width: 40rem;
       flex: 1 1 auto;
 
       :first-child {
+        text-align: center;
         font-size: 1.5rem;
         line-height: 3rem;
       }
     }
 
     .my-photo {
-        object-fit: contain;
-        margin: 20px;
+      object-fit: contain;
+      margin: 20px;
 
-        img {
-            min-width: 10rem;
-            width: 50vw;
-            max-width: 30rem; 
-            border-radius: 20px;
-        }
+      img {
+        min-width: 10rem;
+        width: 50vw;
+        max-width: 30rem;
+        border-radius: 20px;
+      }
     }
   }
 }
 
 .section {
-  height: 300px;
-  padding: 10rem 20px;
+    margin: 0 2rem;
+  padding: 6rem 0;
 }
 
+.journey-container {
+    .my-journey {
+        margin-bottom: 30px;
+    }
+
+    h5 {
+        color: var(--secondary-pink);
+        margin-bottom: 5px;
+    }
+    p {
+        margin-top: 10px;
+    }
+}
 
 @media (max-width: 1058px) {
-    nav {
-        ul {
-            display: none;
-        }
-
-        i.fa-bars {
-            display: block;
-            font-size: 25px;
-        }
+  nav {
+    ul {
+      display: none;
     }
+
+    i.fa-bars {
+      display: block;
+      font-size: 25px;
+    }
+  }
 }
 
 @media (max-width: 900px) {
-    .home-container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  .home-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
