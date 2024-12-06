@@ -114,6 +114,7 @@ nav {
 
 .resume-container {
     .my-resume {
+        margin-bottom: 30px;
         display: flex;
         gap: 30px;
 
