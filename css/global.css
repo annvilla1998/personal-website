@@ -2,6 +2,8 @@
     --primary-pink: rgb(255, 1, 99);
     --secondary-pink: rgb(173, 0, 66);
     --tertiary-pink: rgb(234, 135, 173);
+    --navigation: rgb(29, 29, 29);
+    --navigation-hover: rgb(51, 51, 51);
     --default-text: #202020;
 }
 

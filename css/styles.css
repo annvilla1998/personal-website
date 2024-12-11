@@ -7,7 +7,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgb(29, 29, 29);
+  background-color: var(--navigation);
   color: white;
   align-items: center;
   z-index: 1000;
@@ -22,7 +22,7 @@ nav {
     display: block;
   }
 
-  ul {
+  ul.expanded-menu {
     display: flex;
     gap: 40px;
     justify-content: center;
@@ -54,6 +54,37 @@ nav {
       }
     }
   }
+
+  ul.minimized-menu {
+    display: none;
+  }
+
+  ul.minimized-menu.active {
+    display: block;
+    position: absolute;
+    margin: 0;
+    padding: 5px 20px 15px 20px;
+    bottom: -200px;
+    left: 0;
+    right: 0;
+    background: var(--navigation);
+
+    li {
+      display: inline-flex;
+      width: 100%;
+    }
+
+    a {
+      display: inline-flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 3px 5px;
+
+      &:hover {
+        background: var(--navigation-hover);
+      }
+    }
+  }
 }
 
 .home {
@@ -75,27 +106,26 @@ nav {
       right: 0;
       display: flex;
       gap: 15px;
-
     }
-    
-    .introduction {
-        margin: 2rem 0;
-        min-width: 15rem;
-        width: 60vw;
-        max-width: 40rem;
-        flex: 1 1 auto;
-        
-        :first-child {
-            text-align: center;
-            font-size: 1.5rem;
-            line-height: 3rem;
 
-            .fa-brands,
-            .fa-solid {
-              color: rgb(112, 112, 124);
-              font-size: 2rem;
-            }
+    .introduction {
+      margin: 2rem 0;
+      min-width: 15rem;
+      width: 60vw;
+      max-width: 40rem;
+      flex: 1 1 auto;
+
+      :first-child {
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 3rem;
+
+        .fa-brands,
+        .fa-solid {
+          color: rgb(112, 112, 124);
+          font-size: 2rem;
         }
+      }
     }
 
     .my-photo {
@@ -176,59 +206,38 @@ section {
   }
 }
 
-.tooltip-content {
-    display: none;
-}
-
-.tooltip-wrap {
-    position: relative;
-    
-    &:hover {
-        display: block;
-        
-        .tooltip-content {
-            display: block;
-            position: absolute;
-            border-radius: 5px;
-
-            border: 1px solid rgb(112, 112, 124);;
-            font-size: 1rem;
-            background: white;
-            padding: .5rem;
-            top: -50px;
-            max-width: 500px;
-            left: -130px;
-            color: var(--default-text);
-        }
-
-    }
-}
-
-
-
 footer {
-    background-color: rgb(29, 29, 29);
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
-    align-items: center;
+  background-color: var(--navigation);
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  align-items: center;
 
-    .social-handles {
-        display: flex;
-        gap: 20px;
-        font-size: 1.5rem;
-    }
+  .social-handles {
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 1058px) {
   nav {
-    ul {
+    ul.expanded-menu {
       display: none;
     }
 
     i.fa-bars {
       display: block;
       font-size: 25px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 1058px) {
+  nav {
+    ul.minimized-menu.active {
+      display: none;
     }
   }
 }
@@ -242,6 +251,14 @@ footer {
 }
 
 @media (max-width: 700px) {
+  nav {
+    ul.minimized-menu.active {
+      a {
+        display: inline-flex;
+        justify-content: center;
+      }
+    }
+  }
   .resume-container {
     .my-resume {
       display: flex;
