@@ -205,6 +205,20 @@ section {
   }
 }
 
+.top-skills-container {
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        .skill {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
 footer {
   background-color: var(--navigation);
   display: flex;
