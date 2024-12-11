@@ -16,7 +16,7 @@ nav {
     display: none;
   }
 
-  .nav-title {
+  .logo {
     font-size: 30px;
     padding: 20px;
     display: block;
@@ -112,7 +112,7 @@ nav {
   }
 }
 
-.section {
+section {
   margin: 0 2rem;
   padding: 6rem 0;
 }
@@ -174,6 +174,50 @@ nav {
       }
     }
   }
+}
+
+.tooltip-content {
+    display: none;
+}
+
+.tooltip-wrap {
+    position: relative;
+    
+    &:hover {
+        display: block;
+        
+        .tooltip-content {
+            display: block;
+            position: absolute;
+            border-radius: 5px;
+
+            border: 1px solid rgb(112, 112, 124);;
+            font-size: 1rem;
+            background: white;
+            padding: .5rem;
+            top: -50px;
+            max-width: 500px;
+            left: -130px;
+            color: var(--default-text);
+        }
+
+    }
+}
+
+
+
+footer {
+    background-color: rgb(29, 29, 29);
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+
+    .social-handles {
+        display: flex;
+        gap: 20px;
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 1058px) {
