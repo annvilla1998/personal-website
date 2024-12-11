@@ -65,18 +65,37 @@ nav {
     display: flex;
     gap: 1rem;
 
-    .introduction {
-      margin: 2rem 0;
-      min-width: 15rem;
-      width: 60vw;
-      max-width: 40rem;
-      flex: 1 1 auto;
+    .introduction-header {
+      position: relative;
+    }
 
-      :first-child {
-        text-align: center;
-        font-size: 1.5rem;
-        line-height: 3rem;
-      }
+    .social-handles {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      gap: 15px;
+
+    }
+    
+    .introduction {
+        margin: 2rem 0;
+        min-width: 15rem;
+        width: 60vw;
+        max-width: 40rem;
+        flex: 1 1 auto;
+        
+        :first-child {
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 3rem;
+
+            .fa-brands,
+            .fa-solid {
+              color: rgb(112, 112, 124);
+              font-size: 2rem;
+            }
+        }
     }
 
     .my-photo {
@@ -94,67 +113,67 @@ nav {
 }
 
 .section {
-    margin: 0 2rem;
+  margin: 0 2rem;
   padding: 6rem 0;
 }
 
 .journey-container {
-    .my-journey {
-        margin-bottom: 30px;
-    }
+  .my-journey {
+    margin-bottom: 30px;
+  }
 
-    h5 {
-        color: var(--secondary-pink);
-        margin-bottom: 5px;
-    }
-    p {
-        margin-top: 10px;
-    }
+  h5 {
+    color: var(--secondary-pink);
+    margin-bottom: 5px;
+  }
+  p {
+    margin-top: 10px;
+  }
 }
 
 .resume-container {
-    .my-resume {
-        margin-bottom: 30px;
-        display: flex;
-        gap: 30px;
+  .my-resume {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 30px;
 
-        .title {
-            color: var(--secondary-pink);
-        }
-
-        .col {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            min-width: 300px;
-            max-width: 1200px;
-        }
-
-        .experience {
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: -10px -5px 20px var(--tertiary-pink);
-            transition: transform 0.3s ease;
-
-            .sub-title {
-                font-weight: 600;
-            }
-
-            .date {
-                color: #666;
-                font-weight: 600;
-            }
-
-            ul li {
-                list-style: circle;
-                margin: 15px 0;
-            }
-
-            &:hover {
-                transform: translateX(-15px) translateY(-5px);
-            }
-        }
+    .title {
+      color: var(--secondary-pink);
     }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      min-width: 300px;
+      max-width: 1200px;
+    }
+
+    .experience {
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: -10px -5px 20px var(--tertiary-pink);
+      transition: transform 0.3s ease;
+
+      .sub-title {
+        font-weight: 600;
+      }
+
+      .date {
+        color: #666;
+        font-weight: 600;
+      }
+
+      ul li {
+        list-style: circle;
+        margin: 15px 0;
+      }
+
+      &:hover {
+        transform: translateX(-15px) translateY(-5px);
+      }
+    }
+  }
 }
 
 @media (max-width: 1058px) {
@@ -179,11 +198,11 @@ nav {
 }
 
 @media (max-width: 700px) {
-    .resume-container {
-        .my-resume {
-            display: flex;
-            gap: 30px;
-            flex-direction: column;
-        }
+  .resume-container {
+    .my-resume {
+      display: flex;
+      gap: 30px;
+      flex-direction: column;
     }
+  }
 }
