@@ -81,7 +81,7 @@ nav {
       padding: 3px 5px;
 
       &:hover {
-        background: var(--navigation-hover);
+        background-color: var(--navigation-hover);
       }
     }
   }
@@ -96,19 +96,10 @@ nav {
     display: flex;
     gap: 1rem;
 
-    .introduction-header {
-      position: relative;
-    }
-
-    .social-handles {
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: flex;
-      gap: 15px;
-    }
-
     .introduction {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 2rem 0;
       min-width: 15rem;
       width: 60vw;
@@ -119,11 +110,19 @@ nav {
         text-align: center;
         font-size: 1.5rem;
         line-height: 3rem;
+      }
 
+      .social-handles {
+        display: flex;
+        gap: 15px;
+        p {
+          margin: 0;
+          font-size: 1.3rem;
+        }
         .fa-brands,
         .fa-solid {
-          color: rgb(112, 112, 124);
-          font-size: 2rem;
+          color: rgb(82, 82, 90);
+          font-size: 2.5rem;
         }
       }
     }
@@ -243,11 +242,19 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .home-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+    .home {
+
+        .home-container {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      
+          .introduction {
+              margin: 0;
+              text-align: center;
+          }
+        }
+    }
 }
 
 @media (max-width: 700px) {
@@ -259,6 +266,7 @@ footer {
       }
     }
   }
+
   .resume-container {
     .my-resume {
       display: flex;
