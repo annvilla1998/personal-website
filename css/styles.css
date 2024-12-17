@@ -205,11 +205,12 @@ section {
   }
 }
 
-.top-skills-container {
-    .skills-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
+.skills-container {
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
 
         .skill {
             display: inline-flex;
