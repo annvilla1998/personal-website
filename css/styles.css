@@ -181,7 +181,7 @@ section {
     .experience {
       border-radius: 10px;
       padding: 20px;
-      box-shadow: -10px -5px 20px var(--tertiary-pink);
+      box-shadow: var(--default-box-shadow);
       transition: transform 0.3s ease;
 
       .sub-title {
@@ -212,59 +212,96 @@ section {
     gap: 40px;
     max-width: 1000px;
 
-        .skill {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .skill {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
     }
+  }
 }
 
 .projects-container {
   .project-list {
     display: flex;
-    gap: 40px;
+    gap: 120px;
     flex-wrap: wrap;
 
     .project {
+      position: relative;
+      margin: 10px;
+
+      i {
+        color: var(--default-text);
+        cursor: pointer;
+        font-size: 1.7rem;
+        transition: transform 0.3s ease;
+        &:hover {
+          opacity: 0.3;
+        }
+      }
+
+      i.fa-chevron-left {
+        position: absolute;
+        left: -25px;
+        top: 55%;
+        &:hover {
+          transform: translateX(-5px);
+        }
+      }
+      i.fa-chevron-right {
+        position: absolute;
+        right: -25px;
+        top: 55%;
+        &:hover {
+          transform: translateX(5px);
+        }
+      }
+
       .project-container {
         position: relative;
-        min-width: 200px;
+        min-width: 300px;
         max-width: 600px;
+        transition: transform 0.3s ease;
         
         a {
           img {
             border-radius: 10px;
+            box-shadow: var(--default-box-shadow);
+            min-height: 20px;
             max-height: 100%;
-            max-width: 100%;;
+            width: 40rem;
+            max-width: 100%;
           }
+        }
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+
+      .project-container:hover::before {
+        font-weight: 800;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        bottom: 0;
+        left: 20%;
+        right: 20%;
+        display: grid;
+        place-items: center;
+        color: rgb(0, 0, 0);
+      }
+
+      .project-container.camplife:hover::before {
+        content: "Skills: React, Redux, SQLite, Sequelize, Postman, Express, Node, JSON, NPM, CSS, HTML, Heroku";
+      }
+      .project-container.crown-clothing:hover::before {
+        content: "Skills: React, Redux, Firebase, HTML, CSS, Styled Components, Typescript, Stripe, Sass";
+      }
+      .project-container.wedding:hover::before {
+        content: "Skills: React, Tailwind, MongoDB, Mongoose, Express, Node, JSON, NPM, CSS, HML, Heroku";
       }
     }
-
-    .project-container:hover::before {
-      font-weight: 800;
-      position: absolute;
-      text-align: center;
-      top: 0;
-      bottom: 0;
-      left: 20%;
-      right: 20%;
-      display: grid;
-      place-items: center;
-      color: rgb(0, 0, 0);
-    }
-    
-    .project-container.camplife:hover::before {
-      content: "Skills: React, Redux, SQLite, Sequelize, Postman, Express, Node, JSON, NPM, CSS, HTML, Heroku";
-    }
-    .project-container.crown-clothing:hover::before {
-      content: "Skills: React, Redux, Firebase, HTML, CSS, Styled Components, Typescript, Stripe, Sass";
-    }
-    .project-container.wedding:hover::before {
-      content: "Skills: React, Tailwind, MongoDB, Mongoose, Express, Node, JSON, NPM, CSS, HML, Heroku";
-    }
   }
-}
 }
 
 footer {
@@ -304,19 +341,18 @@ footer {
 }
 
 @media (max-width: 900px) {
-    .home {
+  .home {
+    .home-container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-        .home-container {
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-      
-          .introduction {
-              margin: 0;
-              text-align: center;
-          }
-        }
+      .introduction {
+        margin: 0;
+        text-align: center;
+      }
     }
+  }
 }
 
 @media (max-width: 700px) {
