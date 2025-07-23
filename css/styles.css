@@ -17,7 +17,7 @@ nav {
   }
 
   .logo {
-    font-size: 30px;
+    font-size: 40px;
     padding: 20px;
     display: block;
   }
@@ -105,20 +105,17 @@ nav {
       width: 60vw;
       max-width: 40rem;
       flex: 1 1 auto;
+      font-size: 1.3rem;
 
       :first-child {
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         line-height: 3rem;
       }
 
       .social-handles {
         display: flex;
         gap: 15px;
-        p {
-          margin: 0;
-          font-size: 1.3rem;
-        }
         .fa-brands,
         .fa-solid {
           color: rgb(82, 82, 90);
@@ -142,7 +139,7 @@ nav {
 }
 
 section {
-  margin: 0 2rem;
+  margin: 0 6rem;
   padding: 6rem 0;
 }
 

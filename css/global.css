@@ -24,7 +24,8 @@ body {
     display: block;
     margin: 0 auto;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 18px;
+    font-size: 1.3rem;
+    line-height: 2rem;
     background: rgb(224, 224, 224);
 
     color: var(--default-text);
