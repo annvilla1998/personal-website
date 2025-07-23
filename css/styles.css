@@ -280,6 +280,7 @@ section {
 
       .project-container:hover::before {
         font-weight: 800;
+        font-size: 2rem;
         position: absolute;
         text-align: center;
         top: 0;
@@ -291,14 +292,11 @@ section {
         color: rgb(0, 0, 0);
       }
 
-      .project-container.camplife:hover::before {
-        content: "Skills: React, Redux, SQLite, Sequelize, Postman, Express, Node, JSON, NPM, CSS, HTML, Heroku";
+      .project-container.theturn:hover::before {
+        content: "Skills: Next.js, NextAuth, PostgreSQL, Prisma, Node, JSON, NPM, CSS, HTML, Digital Ocean";
       }
       .project-container.crown-clothing:hover::before {
         content: "Skills: React, Redux, Firebase, HTML, CSS, Styled Components, Typescript, Stripe, Sass";
-      }
-      .project-container.wedding:hover::before {
-        content: "Skills: React, Tailwind, MongoDB, Mongoose, Express, Node, JSON, NPM, CSS, HML, Heroku";
       }
     }
   }

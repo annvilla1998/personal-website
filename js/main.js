@@ -5,17 +5,9 @@ const imageSources = {
     "./assets/images/projects/camplife/book.png",
     "./assets/images/projects/camplife/reviews.png",
   ],
-  "crown-clothing": [
-    "./assets/images/projects/crown-clothing/home.png",
-    "./assets/images/projects/crown-clothing/cart.png",
-    "./assets/images/projects/crown-clothing/checkout.png",
-    "./assets/images/projects/crown-clothing/checkout-2.png",
-  ],
-  wedding: [
-    "./assets/images/projects/wedding-website/home.png",
-    "./assets/images/projects/wedding-website/rsvp.png",
-    "./assets/images/projects/wedding-website/photo-album.png",
-  ],
+  theturn: [
+    "./assets/images/projects/theturn/theturn.png",
+  ]
 };
 const currentIndexes = {
   camplife: 0,
