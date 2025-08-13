@@ -43,13 +43,29 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Main JS  -->
-    <script src="js/main.js"></script>
     <title>Anabel Sieber Personal Website</title>
   </head>
   <body>
+    <div id="loading-screen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2>Loading Portfolio...</h2>
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scroll-progress"></div>
+
+    <button id="theme-toggle" aria-label="Toggle dark/light theme">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </button>
+
+    <canvas id="particles-canvas"></canvas>
     <nav>
-      <a href="#">
+      <a href="#home-section">
         <span class="knewave-regular logo animate__animated animate__zoomInLeft"
           >Anabel Sieber</span
         >
@@ -57,7 +73,7 @@
       <i class="fa-solid fa-bars"></i>
       <ul class="expanded-menu">
         <li>
-          <a href="#"><span class="nav-item active">Home</span></a>
+          <a href="#home-section"><span class="nav-item active">Home</span></a>
         </li>
         <li>
           <a href="#my-journey-section"
@@ -89,7 +105,7 @@
 
       <ul class="minimized-menu">
         <li>
-          <a href="#"><span class="nav-item active">Home</span></a>
+          <a href="#home-section"><span class="nav-item active">Home</span></a>
         </li>
         <li>
           <a href="#my-journey-section"
@@ -124,7 +140,8 @@
         <div class="introduction">
           <div class="animate__animated animate__heartBeat introduction-header">
             <strong>Hi!</strong> <br />
-            I'm Anabel Sieber
+            <span id="typed-text">I'm Anabel Sieber</span>
+            <span class="typing-cursor">|</span>
           </div>
           <p>
             I'm a software engineer with expertise in full-stack web
@@ -667,7 +684,6 @@
             />
             <p>Linux</p>
           </div>
-
           <div class="skill">
             <img
               alt="Jest"
@@ -787,7 +803,7 @@
       </div>
     </section>
     <footer id="contact-section">
-      <a href="#">
+      <a href="#home-section">
         <span class="knewave-regular logo animate__animated animate__zoomInLeft"
           >Anabel Sieber</span
         >
@@ -807,5 +823,8 @@
         ></a>
       </div>
     </footer>
+    
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
   </body>
 </html>

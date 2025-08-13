@@ -7,6 +7,8 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  box-sizing: border-box;
   background-color: var(--navigation);
   color: white;
   align-items: center;
@@ -63,11 +65,13 @@ nav {
     display: block;
     position: absolute;
     margin: 0;
-    padding: 5px 20px 15px 20px;
-    bottom: -200px;
-    left: 0;
-    right: 0;
+    padding: 10px 0;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    width: calc(100% + 40px);
     background: var(--navigation);
+    box-sizing: border-box;
 
     li {
       display: inline-flex;
@@ -75,10 +79,10 @@ nav {
     }
 
     a {
-      display: inline-flex;
-      justify-content: flex-end;
+      display: block;
       width: 100%;
-      padding: 3px 5px;
+      padding: 10px 20px;
+      text-align: left;
 
       &:hover {
         background-color: var(--navigation-hover);
@@ -118,7 +122,7 @@ nav {
         gap: 15px;
         .fa-brands,
         .fa-solid {
-          color: rgb(82, 82, 90);
+          color: var(--text-primary);
           font-size: 2.5rem;
         }
       }
@@ -165,6 +169,18 @@ section {
 
     .title {
       color: var(--secondary-pink);
+      position: relative;
+    }
+
+    .title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink));
+      transition: width 0.3s ease;
     }
 
     .col {
@@ -176,27 +192,67 @@ section {
     }
 
     .experience {
-      border-radius: 10px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 25px;
       box-shadow: var(--default-box-shadow);
-      transition: transform 0.3s ease;
+      transition: all 0.4s ease;
+      background: var(--background-secondary);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 1, 99, 0.1), transparent);
+        transition: left 0.6s ease;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
+      &:hover .title::after {
+        width: 100%;
+      }
 
       .sub-title {
         font-weight: 600;
+        color: var(--primary-pink);
       }
 
       .date {
-        color: #666;
+        color: var(--text-secondary);
         font-weight: 600;
+        font-style: italic;
       }
 
       ul li {
-        list-style: circle;
+        list-style: none;
         margin: 15px 0;
+        transition: all 0.3s ease;
+        padding-left: 10px;
+        position: relative;
+      }
+
+      ul li::before {
+        content: '▶';
+        color: var(--primary-pink);
+        position: absolute;
+        left: -15px;
+        transition: all 0.3s ease;
+      }
+
+      ul li:hover::before {
+        transform: translateX(5px);
       }
 
       &:hover {
-        transform: translateX(-15px) translateY(-5px);
+        transform: translateX(-20px) translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       }
     }
   }
@@ -213,6 +269,34 @@ section {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      padding: 20px;
+      border-radius: 15px;
+      background: var(--background-secondary);
+      box-shadow: var(--default-box-shadow);
+      transition: all 0.3s ease;
+      min-width: 120px;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      &:hover .programming-logo {
+        animation: float 2s ease-in-out infinite;
+      }
+
+      .programming-logo {
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+      }
+
+      p {
+        margin: 10px 0 5px 0;
+        font-weight: 600;
+        text-align: center;
+      }
     }
   }
 }
@@ -226,74 +310,134 @@ section {
     .project {
       position: relative;
       margin: 10px;
+      perspective: 1000px;
 
       i {
         color: var(--default-text);
         cursor: pointer;
         font-size: 1.7rem;
-        transition: transform 0.3s ease;
+        transition: all 0.3s ease;
+        padding: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        
         &:hover {
           opacity: 0.3;
+          background: var(--primary-pink);
+          color: white;
         }
       }
 
       i.fa-chevron-left {
         position: absolute;
-        left: -25px;
+        left: -50px;
         top: 55%;
+        z-index: 10;
         &:hover {
-          transform: translateX(-5px);
+          transform: translateX(-5px) scale(1.1);
         }
       }
+      
       i.fa-chevron-right {
         position: absolute;
-        right: -25px;
+        right: -50px;
         top: 55%;
+        z-index: 10;
         &:hover {
-          transform: translateX(5px);
+          transform: translateX(5px) scale(1.1);
         }
+      }
+
+      h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--secondary-pink);
+        font-size: 1.5rem;
+        font-weight: 700;
       }
 
       .project-container {
         position: relative;
         min-width: 300px;
         max-width: 600px;
-        transition: transform 0.3s ease;
+        transition: all 0.5s ease;
         height: 500px;
+        transform-style: preserve-3d;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--default-box-shadow);
         
         a {
+          display: block;
+          height: 100%;
+          
           img {
-            border-radius: 10px;
-            box-shadow: var(--default-box-shadow);
+            border-radius: 15px;
             height: 100%;
             width: 40rem;
             max-width: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
           }
         }
+        
         &:hover {
-          transform: translateY(-5px);
+          transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(255, 1, 99, 0.8), rgba(173, 0, 66, 0.8));
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          z-index: 2;
+          border-radius: 15px;
+        }
+
+        &:hover::before {
+          opacity: 1;
         }
       }
 
-      .project-container:hover::before {
-        font-weight: 800;
-        font-size: 2rem;
+      .project-container:hover::after {
+        font-weight: 600;
+        font-size: 1.2rem;
         position: absolute;
         text-align: center;
-        top: 0;
-        bottom: 0;
-        left: 20%;
-        right: 20%;
-        display: grid;
-        place-items: center;
-        color: rgb(0, 0, 0);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        z-index: 3;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        max-width: 80%;
+        line-height: 1.4;
       }
 
-      .project-container.theturn:hover::before {
-        content: "Skills: Next.js, NextAuth, PostgreSQL, Prisma, Node, JSON, NPM, CSS, HTML, Digital Ocean";
+      .project-container.theturn:hover::after {
+        content: "Full-Stack Golf Simulation Platform\A\ANext.js 15 • React 18 • PostgreSQL • Prisma\ANextAuth • Stripe • Digital Ocean • MaterialUI\ARedux Toolkit • Automated Emails";
+        white-space: pre-line;
       }
-      .project-container.crown-clothing:hover::before {
-        content: "Skills: React, Redux, Firebase, HTML, CSS, Styled Components, Typescript, Stripe, Sass";
+      
+      .project-container.crown-clothing:hover::after {
+        content: "E-Commerce Clothing Store\A\AReact • Redux • Firebase • TypeScript\AStripe Payment • Styled Components • Sass\AReal-time Cart • User Authentication";
+        white-space: pre-line;
       }
     }
   }
@@ -315,6 +459,8 @@ footer {
 
 @media (max-width: 1058px) {
   nav {
+    padding: 0 15px;
+    
     ul.expanded-menu {
       display: none;
     }
@@ -323,6 +469,18 @@ footer {
       display: block;
       font-size: 25px;
       cursor: pointer;
+    }
+    
+    .logo {
+      font-size: 35px;
+      padding: 15px 0;
+    }
+    
+    ul.minimized-menu.active {
+      display: block;
+      left: -15px;
+      right: -15px;
+      width: calc(100% + 30px);
     }
   }
 }
@@ -352,11 +510,17 @@ footer {
 
 @media (max-width: 700px) {
   nav {
+    padding: 0 10px;
+    
+    .logo {
+      font-size: 30px;
+      padding: 10px 0;
+    }
+    
     ul.minimized-menu.active {
-      a {
-        display: inline-flex;
-        justify-content: center;
-      }
+      left: -10px;
+      right: -10px;
+      width: calc(100% + 20px);
     }
   }
 
