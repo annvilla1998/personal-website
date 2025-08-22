@@ -336,15 +336,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
+  // Navigation click handling
+  let isManualNavigation = false;
+  let navigationTimeout;
+
+  // Handle navigation clicks
+  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        // Update active navigation item
+        e.preventDefault();
+        
+        // Set manual navigation flag
+        isManualNavigation = true;
+        clearTimeout(navigationTimeout);
+        
+        // Update active navigation item immediately
         updateActiveNavItem(targetId);
         
         // Smooth scroll to target
@@ -352,6 +361,11 @@ document.addEventListener("DOMContentLoaded", function () {
           behavior: 'smooth',
           block: 'start'
         });
+        
+        // Reset flag after scroll completes
+        navigationTimeout = setTimeout(() => {
+          isManualNavigation = false;
+        }, 1000);
       }
     });
   });
@@ -369,8 +383,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   
-  // Update active nav item on scroll
+  // Update active nav item on scroll (only if not manually navigating)
   window.addEventListener('scroll', () => {
+    if (isManualNavigation) return; // Skip scroll detection during manual navigation
+    
     const sections = document.querySelectorAll('section[id], header[id]');
     let currentSection = '';
     

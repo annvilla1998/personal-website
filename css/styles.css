@@ -532,3 +532,100 @@ footer {
     }
   }
 }
+
+/* GitHub Repositories Section */
+.github-container {
+  .repo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .repo-card {
+      background: var(--background-secondary);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: var(--default-box-shadow);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 1, 99, 0.1), transparent);
+        transition: left 0.6s ease;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .repo-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+
+        h3 {
+          color: var(--secondary-pink);
+          margin: 0;
+          font-size: 1.4rem;
+          font-weight: 700;
+        }
+
+        .repo-link {
+          color: var(--text-primary);
+          font-size: 1.5rem;
+          transition: all 0.3s ease;
+          padding: 8px;
+          border-radius: 50%;
+          background: rgba(255, 1, 99, 0.1);
+
+          &:hover {
+            color: var(--primary-pink);
+            background: rgba(255, 1, 99, 0.2);
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .repo-description {
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .repo-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .tech-tag {
+          background: var(--primary-pink);
+          color: white;
+          padding: 5px 12px;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: var(--secondary-pink);
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
