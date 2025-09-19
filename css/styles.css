@@ -372,6 +372,7 @@ section {
         a {
           display: block;
           height: 100%;
+          pointer-events: auto;
           
           img {
             border-radius: 15px;
@@ -404,6 +405,7 @@ section {
           transition: opacity 0.3s ease;
           z-index: 2;
           border-radius: 15px;
+          pointer-events: none;
         }
 
         &:hover::before {
@@ -428,6 +430,7 @@ section {
         backdrop-filter: blur(10px);
         max-width: 80%;
         line-height: 1.4;
+        pointer-events: none;
       }
 
       .project-container.theturn:hover::after {
