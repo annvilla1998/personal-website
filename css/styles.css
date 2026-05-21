@@ -434,7 +434,7 @@ section {
       }
 
       .project-container.theturn:hover::after {
-        content: "Full-Stack Golf Simulation Platform\A\ANext.js 15 • React 18 • PostgreSQL • Prisma\ANextAuth • Stripe • Digital Ocean • MaterialUI\ARedux Toolkit • Automated Emails";
+        content: "Golf Simulation Promotional Website\A\ANext.js • React";
         white-space: pre-line;
       }
       
